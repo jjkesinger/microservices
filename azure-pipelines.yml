@@ -5,10 +5,3 @@ pool:
   vmImage: 'windows-latest'
 
 steps:
-- task: AzureResourceManagerTemplateDeployment@3
-  inputs:
-    deploymentScope: 'Resource Group'
-    azureResourceManagerConnection: 'Insperity AzureCloud'
-    subscriptionId: '31f46aed-6e7c-478c-9869-44d3453e52fa'
-    action: 'DeleteRG'
-    resourceGroupName: 'microservice'
