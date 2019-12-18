@@ -5,3 +5,9 @@ pool:
   vmImage: 'windows-latest'
 
 steps:
+- task: AzureCLI@2
+  inputs:
+    azureSubscription: 'Insperity AzureCloud'
+    scriptType: 'ps'
+    scriptLocation: 'inlineScript'
+    inlineScript: 'az group create --name Test --location centralus'
