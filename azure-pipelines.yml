@@ -9,13 +9,18 @@ steps:
   inputs:
     dockerVersion: '17.09.0-ce'
 
-- task: AzureCLI@2
+# - task: AzureCLI@2
+#   inputs:
+#     azureSubscription: 'Visual Studio Enterprise (31f46aed-6e7c-478c-9869-44d3453e52fa)'
+#     scriptType: 'ps'
+#     scriptLocation: 'scriptPath'
+#     scriptPath: '$(System.DefaultWorkingDirectory)/resource-deployment.ps1'
+#     arguments: '$(nsp-esc-dev-sqlserver-name), $(nsp-esc-dev-sqlserver-username), $(nsp-esc-dev-sqlserver-pw), "microservice", "centralus", $(nsp-esc-dev-servicebus-name), "payroll"'
+#     addSpnToEnvironment: true
+- task: AzurePowerShell@5
   inputs:
     azureSubscription: 'Visual Studio Enterprise (31f46aed-6e7c-478c-9869-44d3453e52fa)'
-    scriptType: 'ps'
-    scriptLocation: 'scriptPath'
-    scriptPath: '$(System.DefaultWorkingDirectory)/resource-deployment.ps1'
-    arguments: '$(nsp-esc-dev-sqlserver-name), $(nsp-esc-dev-sqlserver-username), $(nsp-esc-dev-sqlserver-pw), "microservice", "centralus", $(nsp-esc-dev-servicebus-name), "payroll"'
-    addSpnToEnvironment: true
-
-  
+    ScriptType: 'FilePath'
+    ScriptPath: 'resource-deployment.ps1'
+    ScriptArguments: '$(nsp-esc-dev-sqlserver-name), $(nsp-esc-dev-sqlserver-username), $(nsp-esc-dev-sqlserver-pw), "microservice", "centralus", $(nsp-esc-dev-servicebus-name), "payroll"'
+    azurePowerShellVersion: 'LatestVersion'
