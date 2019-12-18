@@ -17,3 +17,5 @@ steps:
     scriptPath: '$(System.DefaultWorkingDirectory)/resource-deployment.ps1'
     arguments: '$(nsp-esc-dev-sqlserver-name), $(nsp-esc-dev-sqlserver-username), $(nsp-esc-dev-sqlserver-pw), "microservice", "centralus", $(nsp-esc-dev-servicebus-name), "payroll"'
     addSpnToEnvironment: true
+
+  
