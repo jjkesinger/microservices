@@ -8,7 +8,7 @@ param ($sqlservername, $sqluser, $sqlpassword, $resourceGroup, $location, $servi
 # $ = "payroll"
 
 Write-Output "Logging In"
-az login --service-principal $env:servicePrincipalId -tenent $env:tenentId
+#az login --service-principal $env:servicePrincipalId -tenent $env:tenentId
 
 Write-Output "Creating Resource group"
 az group create --name $resourceGroup --location $location
