@@ -11,7 +11,7 @@ steps:
 
 - task: AzureCLI@2
   inputs:
-    azureSubscription: 'Visual Studio Enterprise (31f46aed-6e7c-478c-9869-44d3453e52fa)'
+    azureSubscription: 'Insperity AzureCloud'
     scriptType: 'ps'
     scriptLocation: 'scriptPath'
     scriptPath: '$(System.DefaultWorkingDirectory)/resource-deployment.ps1'
