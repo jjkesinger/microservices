@@ -1,10 +1,14 @@
-$sqlpassword = "P@ssword"
-$sqluser = "adminuser"
-$sqlservername = "nsp-esc-dev"
-$resourceGroup = "microservice"
-$location = "centralus"
-$servicebusnamespace = "microsrvicetest"
-$databasename = "payroll"
+param ($sqlservername, $sqluser, $sqlpassword, $resourceGroup, $location, $servicebusnamespace, $databasename)
+# $ = "P@ssword"
+# $ = "adminuser"
+# $ = "nsp-esc-dev"
+# $ = "microservice"
+# $ = "centralus"
+# $ = "nsp-esc-dev"
+# $ = "payroll"
+
+Write-Output "Logging In"
+az login --service-principal $env:servicePrincipalId -tenent $env:tenentId
 
 Write-Output "Creating Resource group"
 az group create --name $resourceGroup --location $location
@@ -32,4 +36,4 @@ $env:SQL_PW=$sqlpassword
 
 Write-Output "Set environmental variables" $env:DB_CONNECTIONSTRING
 
-#docker-compose up
+docker-compose build
