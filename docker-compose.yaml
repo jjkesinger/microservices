@@ -1,0 +1,25 @@
+version: "3.4"
+services:
+    microservice.two.app:
+        image: microservicetwo
+        networks:
+            - sql
+        build:
+            context: .
+            dockerfile: MicroserviceTwo-Dockerfile.Dockerfile
+        environment:
+            PayrollConnectionString: ${DB_CONNECTIONSTRING?err}
+            AppSettings.ServiceBusEndpoint: ${SB_CONNECTIONSTRING?err}
+            AppSettings.SubscriberName: "payroll_subscriber"
+            AppSettings.PayrollQueueName: "payroll_queue"
+        depends_on:
+            - db
+    db:
+        image: "mcr.microsoft.com/mssql/server:2019-GA-ubuntu-16.04"
+        networks:
+            - sql
+        environment:
+            SA_PASSWORD: ${SQL_PW?err}
+            ACCEPT_EULA: "Y"
+networks:
+    sql:
