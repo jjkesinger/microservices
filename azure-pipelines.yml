@@ -14,6 +14,7 @@ steps:
     azureSubscription: 'Visual Studio Enterprise (31f46aed-6e7c-478c-9869-44d3453e52fa)'
     scriptType: 'ps'
     scriptLocation: 'scriptPath'
-    scriptPath: './resource-deploy.ps1'
+    scriptPath: '/resource-deploy.ps1'
     arguments: '$(nsp-esc-dev-sqlserver-name), $(nsp-esc-dev-sqlserver-username), $(nsp-esc-dev-sqlserver-pw), "microservice", "centralus", $(nsp-esc-dev-servicebus-name), "payroll"'
     addSpnToEnvironment: true
+
