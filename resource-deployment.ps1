@@ -7,7 +7,7 @@ param ($server, [SecureString]$sqluser, [SecureString]$sqlpassword, $resourceGro
 # $ = "nsp-esc-dev"
 # $ = "payroll"
 
-$sqlservername = ConvertTo-SecureString $server
+$sqlservername = ConvertTo-SecureString $server -Force
 
 Write-Output "Test"
 Write-Output $sqlservername
