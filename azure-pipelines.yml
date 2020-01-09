@@ -6,4 +6,4 @@ steps:
 - task: PowerShell@2
   inputs:
     filePath: '.\resource-deployment.ps1'
-    arguments: '$(nsp-esc-dev-sqlserver-pw)'
+    arguments: '$(nsp-esc-dev.nsp-esc-dev-sqlserver-pw)'
