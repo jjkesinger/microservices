@@ -1,4 +1,4 @@
-param ([SecureString]$sqlservername, [SecureString]$sqluser, [SecureString]$sqlpassword, $resourceGroup, $location, [SecureString]$servicebusnamespace, [SecureString]$databasename)
+param ($server, [SecureString]$sqluser, [SecureString]$sqlpassword, $resourceGroup, $location, [SecureString]$servicebusnamespace, [SecureString]$databasename)
 # $ = "P@ssword"
 # $ = "adminuser"
 # $ = "nsp-esc-dev"
@@ -6,6 +6,9 @@ param ([SecureString]$sqlservername, [SecureString]$sqluser, [SecureString]$sqlp
 # $ = "centralus"
 # $ = "nsp-esc-dev"
 # $ = "payroll"
+
+$sqlservername = ConvertTo-SecureString $server
+
 Write-Output "Test"
 Write-Output $sqlservername
 
