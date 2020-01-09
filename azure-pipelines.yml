@@ -2,7 +2,7 @@ pool:
   name: 'Insperity'
 
 variables:
-  - group: nsp-dev-keys
+  group: nsp-dev-keys
 
 steps:
 - task: PowerShell@2
